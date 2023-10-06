@@ -11,6 +11,17 @@ namespace ProjetoFerramentas
 
             lblData.Text = DateTime.Now.ToLongDateString();
 
+            // Adiionar itens no cbitens
+
+            cbItens.Items.Add("Selecione um objeto:");
+            cbItens.Items.Add("Teclado");
+            cbItens.Items.Add("Monitor");
+            cbItens.Items.Add("Placa de vídeo");
+
+            // Deixar comboboxes com itens selecionados
+
+            cbNomes.SelectedIndex = 0;
+            cbItens.SelectedIndex = 0;
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -19,11 +30,6 @@ namespace ProjetoFerramentas
 
             lblHora.Text= DateTime.Now.ToLongTimeString();
             lblHora2.Text= DateTime.Now.ToLongTimeString();
-        }
-
-        private void label7_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void ckAmarelo_CheckedChanged(object sender, EventArgs e)
@@ -46,11 +52,6 @@ namespace ProjetoFerramentas
             }
         }
 
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
-        }
-
         private void rbMasculino_CheckedChanged(object sender, EventArgs e)
         {
             lblRadioButton.Text = "Votuporango";
@@ -59,6 +60,28 @@ namespace ProjetoFerramentas
         private void Feminino_CheckedChanged(object sender, EventArgs e)
         {
             lblRadioButton.Text = "Votuporanga";
+        }
+
+        private void btnMascara_Click(object sender, EventArgs e)
+        {
+            lblMascara.Text = txtMascara.Text;
+        }
+
+        private void cbNomes_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            lblNomes.Text = cbNomes.Text;
+            lblIndex.Text = cbNomes.SelectedIndex.ToString();
+        }
+
+        private void cbItens_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            lblItens.Text = cbItens.Text;
+            lblIndex2.Text= cbItens.SelectedIndex.ToString();
+        }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+            lblCalendario.Text = dateTimePicker1.Value.ToShortDateString();
         }
     }
 }
