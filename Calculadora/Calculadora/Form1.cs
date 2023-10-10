@@ -189,7 +189,16 @@ namespace Calculadora
                 default:
                     break;
             }
-            lblVisor.Text = strnumber;
+
+            if (total == 0)
+            {
+                lblVisor.Text = $"{strnumber}";
+            }
+            else
+            {
+                lblVisor.Text = $"{total}";
+            }
+            
             nextoperation = "+";
             strnumber = "0";
         }
@@ -217,7 +226,16 @@ namespace Calculadora
                 default:
                     break;
             }
-            lblVisor.Text = strnumber;
+
+            if (total == 0)
+            {
+                lblVisor.Text = $"{strnumber}";
+            }
+            else
+            {
+                lblVisor.Text = $"{total}";
+            }
+
             nextoperation = "-";
             strnumber = "0";
         }
@@ -245,7 +263,16 @@ namespace Calculadora
                 default:
                     break;
             }
-            lblVisor.Text = strnumber;
+
+            if (total == 0)
+            {
+                lblVisor.Text = $"{strnumber}";
+            }
+            else
+            {
+                lblVisor.Text = $"{total}";
+            }
+
             nextoperation = "/";
             strnumber = "0";
         }
@@ -273,7 +300,16 @@ namespace Calculadora
                 default:
                     break;
             }
-            lblVisor.Text = strnumber;
+
+            if (total == 0)
+            {
+                lblVisor.Text = $"{strnumber}";
+            }
+            else
+            {
+                lblVisor.Text = $"{total}";
+            }
+
             nextoperation = "*";
             strnumber = "0";
         }
