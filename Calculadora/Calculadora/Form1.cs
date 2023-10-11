@@ -9,6 +9,7 @@ namespace Calculadora
 
         string strnumber = "", nextoperation = "N/A";
         double total = 0, temp = 0;
+        bool firstop = true;
         private void btn0_Click(object sender, EventArgs e)
         {
             if (strnumber == "0")
@@ -143,53 +144,71 @@ namespace Calculadora
         {
             bool ignore = false;
 
-            foreach(char c in strnumber)
+            // Verifica se o número digitado já possui números após a vírgula
+            foreach (char c in strnumber)
             {
-                if (c == '.')
+                if (c == ',')
                 {
                     ignore = true;
                 }
             }
 
+            // Adiciona a vírgula
             if (ignore == false)
             {
-                strnumber += ".";
+                strnumber += ",";
             }
 
+            // Mostra número no visor
             lblVisor.Text = strnumber;
         }
 
         private void btnLimpar_Click(object sender, EventArgs e)
         {
+            // Limpa todos os dados e mostra no visor
             strnumber = "0";
             total = 0;
+            firstop = true;
             lblVisor.Text = strnumber;
         }
 
         private void btnAdicionar_Click(object sender, EventArgs e)
         {
+            // Se essa é a primeira operação a ser realizada, o primeiro número da operação é adicionado ao total
+            if (firstop)
+            {
+                nextoperation = "+";
+                firstop = false;
+            }
+
+            // Verifica se há uma operação pendente e a executa
             switch (nextoperation)
             {
                 case "+":
                     total += double.Parse(strnumber);
-                    nextoperation = "N/A";
                     break;
                 case "-":
                     total -= double.Parse(strnumber);
-                    nextoperation = "N/A";
                     break;
                 case "*":
                     total *= double.Parse(strnumber);
-                    nextoperation = "N/A";
                     break;
                 case "/":
-                    total /= double.Parse(strnumber);
-                    nextoperation = "N/A";
+                    // Tratamento da divisão por zero
+                    if (double.Parse(strnumber) == 0)
+                    {
+                        strnumber = "Divisão por zero!";
+                    }
+                    else
+                    {
+                        total /= double.Parse(strnumber);
+                    }
                     break;
                 default:
                     break;
             }
 
+            // Se o total é nulo, o valor mostrado é o número digitado anteriormente. Se não, é mostrado o total
             if (total == 0)
             {
                 lblVisor.Text = $"{strnumber}";
@@ -198,36 +217,51 @@ namespace Calculadora
             {
                 lblVisor.Text = $"{total}";
             }
-            
+
+            // Definindo próxima operação e resetando o número do visor
             nextoperation = "+";
             strnumber = "0";
         }
 
         private void btnSubtrair_Click(object sender, EventArgs e)
         {
+            // Se essa é a primeira operação a ser realizada, o primeiro número da operação é adicionado ao total
+            if (firstop)
+            {
+                nextoperation = "+";
+                firstop = false;
+            }
+
+            // Verifica se há uma operação pendente e a executa
             switch (nextoperation)
             {
                 case "+":
                     total += double.Parse(strnumber);
-                    nextoperation = "N/A";
                     break;
                 case "-":
                     total -= double.Parse(strnumber);
-                    nextoperation = "N/A";
                     break;
                 case "*":
                     total *= double.Parse(strnumber);
-                    nextoperation = "N/A";
                     break;
                 case "/":
-                    total /= double.Parse(strnumber);
-                    nextoperation = "N/A";
+                    // Tratamento da divisão por zero
+                    if (double.Parse(strnumber) == 0)
+                    {
+                        strnumber = "Divisão por zero!";
+                    }
+                    else
+                    {
+                        total /= double.Parse(strnumber);
+                    }
                     break;
                 default:
                     break;
             }
 
-            if (total == 0)
+            // Se o total é nulo, o valor mostrado é o número digitado anteriormente. Se não, é mostrado o total
+            // Mostra mensagem de erro se ela for emitida e depois redefine a strnumber para 0
+            if (strnumber == "Divisão por zero!" || total == 0)
             {
                 lblVisor.Text = $"{strnumber}";
             }
@@ -236,35 +270,50 @@ namespace Calculadora
                 lblVisor.Text = $"{total}";
             }
 
+            // Definindo próxima operação e resetando o número do visor
             nextoperation = "-";
             strnumber = "0";
         }
 
         private void btnDividir_Click(object sender, EventArgs e)
         {
+            // Se essa é a primeira operação a ser realizada, o primeiro número da operação é adicionado ao total
+            if (firstop)
+            {
+                nextoperation = "+";
+                firstop = false;
+            }
+
+            // Verifica se há uma operação pendente e a executa
             switch (nextoperation)
             {
                 case "+":
                     total += double.Parse(strnumber);
-                    nextoperation = "N/A";
                     break;
                 case "-":
                     total -= double.Parse(strnumber);
-                    nextoperation = "N/A";
                     break;
                 case "*":
                     total *= double.Parse(strnumber);
-                    nextoperation = "N/A";
                     break;
                 case "/":
-                    total /= double.Parse(strnumber);
-                    nextoperation = "N/A";
+                    // Tratamento da divisão por zero
+                    if (double.Parse(strnumber) == 0)
+                    {
+                        strnumber = "Divisão por zero!";
+                    }
+                    else
+                    {
+                        total /= double.Parse(strnumber);
+                    }
                     break;
                 default:
                     break;
             }
 
-            if (total == 0)
+            // Se o total é nulo, o valor mostrado é o número digitado anteriormente. Se não, é mostrado o total
+            // Mostra mensagem de erro se ela for emitida e depois redefine a strnumber para 0
+            if (strnumber == "Divisão por zero!" || total == 0)
             {
                 lblVisor.Text = $"{strnumber}";
             }
@@ -273,35 +322,50 @@ namespace Calculadora
                 lblVisor.Text = $"{total}";
             }
 
+            // Definindo próxima operação e resetando o número do visor
             nextoperation = "/";
             strnumber = "0";
         }
 
         private void btnMultiplicar_Click(object sender, EventArgs e)
         {
+            // Se essa é a primeira operação a ser realizada, o primeiro número da operação é adicionado ao total
+            if (firstop)
+            {
+                nextoperation = "+";
+                firstop = false;
+            }
+
+            // Verifica se há uma operação pendente e a executa
             switch (nextoperation)
             {
                 case "+":
                     total += double.Parse(strnumber);
-                    nextoperation = "N/A";
                     break;
                 case "-":
                     total -= double.Parse(strnumber);
-                    nextoperation = "N/A";
                     break;
                 case "*":
                     total *= double.Parse(strnumber);
-                    nextoperation = "N/A";
                     break;
                 case "/":
-                    total /= double.Parse(strnumber);
-                    nextoperation = "N/A";
+                    // Tratamento da divisão por zero
+                    if (double.Parse(strnumber) == 0)
+                    {
+                        strnumber = "Divisão por zero!";
+                    }
+                    else
+                    {
+                        total /= double.Parse(strnumber);
+                    }
                     break;
                 default:
                     break;
             }
 
-            if (total == 0)
+            // Se o total é nulo, o valor mostrado é o número digitado anteriormente. Se não, é mostrado o total
+            // Mostra mensagem de erro se ela for emitida e depois redefine a strnumber para 0
+            if (strnumber == "Divisão por zero!" || total == 0)
             {
                 lblVisor.Text = $"{strnumber}";
             }
@@ -310,12 +374,14 @@ namespace Calculadora
                 lblVisor.Text = $"{total}";
             }
 
+            // Definindo próxima operação e resetando o número do visor
             nextoperation = "*";
             strnumber = "0";
         }
 
         private void btnCalcularResultado_Click(object sender, EventArgs e)
         {
+            // Verifica se há uma operação pendente e a executa
             switch (nextoperation)
             {
                 case "+":
@@ -331,15 +397,34 @@ namespace Calculadora
                     nextoperation = "N/A";
                     break;
                 case "/":
-                    total /= double.Parse(strnumber);
+                    // Tratamento da divisão por zero
+                    if (double.Parse(strnumber) == 0)
+                    {
+                        strnumber = "Divisão por zero!";
+                    }
+                    else
+                    {
+                        total /= double.Parse(strnumber);
+                    }
                     nextoperation = "N/A";
                     break;
                 default:
                     break;
             }
 
-            lblVisor.Text = $"{total}";
-            total = 0;
+            // Se o total é nulo, o valor mostrado é o número digitado anteriormente. Se não, é mostrado o total
+            // Se a mensagem de erro for emitida, a operação é ignorada e o usuário tem a oportunidade de realizar uma nova operação a partir do total já existente
+            if (strnumber == "Divisão por zero!")
+            {
+                lblVisor.Text = $"{strnumber}";
+            }
+            else
+            {
+                lblVisor.Text = $"{total}";
+            }
+
+            // Mostrando total no visor
+            strnumber = $"{total}";
         }
     }
 }
