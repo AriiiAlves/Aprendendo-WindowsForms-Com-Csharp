@@ -54,17 +54,26 @@
             this.lstFeitaHora = new System.Windows.Forms.ColumnHeader();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.btnDeletar = new System.Windows.Forms.Button();
+            this.cbDeletar = new System.Windows.Forms.ComboBox();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.btnConcluir = new System.Windows.Forms.Button();
+            this.cbConcluir = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            this.groupBox4.SuspendLayout();
+            this.groupBox5.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(342, 32);
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(434, 23);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(86, 15);
+            this.label1.Size = new System.Drawing.Size(142, 28);
             this.label1.TabIndex = 0;
             this.label1.Text = "Lista de Tarefas";
             // 
@@ -97,9 +106,9 @@
             this.groupBox1.Controls.Add(this.txtTarefa);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Location = new System.Drawing.Point(47, 94);
+            this.groupBox1.Location = new System.Drawing.Point(27, 66);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(322, 242);
+            this.groupBox1.Size = new System.Drawing.Size(322, 233);
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Criar Nova";
@@ -176,9 +185,9 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.lstPendentes);
-            this.groupBox2.Location = new System.Drawing.Point(375, 94);
+            this.groupBox2.Location = new System.Drawing.Point(355, 66);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(200, 344);
+            this.groupBox2.Size = new System.Drawing.Size(319, 455);
             this.groupBox2.TabIndex = 6;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "A Fazer";
@@ -192,7 +201,7 @@
             this.lstPendenteHora});
             this.lstPendentes.Location = new System.Drawing.Point(6, 22);
             this.lstPendentes.Name = "lstPendentes";
-            this.lstPendentes.Size = new System.Drawing.Size(188, 316);
+            this.lstPendentes.Size = new System.Drawing.Size(307, 427);
             this.lstPendentes.TabIndex = 0;
             this.lstPendentes.UseCompatibleStateImageBehavior = false;
             this.lstPendentes.View = System.Windows.Forms.View.Details;
@@ -200,14 +209,17 @@
             // lstPendenteTarefa
             // 
             this.lstPendenteTarefa.Text = "Tarefa";
+            this.lstPendenteTarefa.Width = 80;
             // 
             // lstPendenteTipo
             // 
             this.lstPendenteTipo.Text = "Tipo";
+            this.lstPendenteTipo.Width = 80;
             // 
             // lstPendenteDia
             // 
             this.lstPendenteDia.Text = "Dia";
+            this.lstPendenteDia.Width = 80;
             // 
             // lstPendenteHora
             // 
@@ -216,9 +228,9 @@
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.lstFeitas);
-            this.groupBox3.Location = new System.Drawing.Point(588, 94);
+            this.groupBox3.Location = new System.Drawing.Point(680, 66);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(200, 344);
+            this.groupBox3.Size = new System.Drawing.Size(319, 455);
             this.groupBox3.TabIndex = 7;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Completas";
@@ -232,7 +244,7 @@
             this.lstFeitaHora});
             this.lstFeitas.Location = new System.Drawing.Point(6, 22);
             this.lstFeitas.Name = "lstFeitas";
-            this.lstFeitas.Size = new System.Drawing.Size(188, 316);
+            this.lstFeitas.Size = new System.Drawing.Size(307, 427);
             this.lstFeitas.TabIndex = 1;
             this.lstFeitas.UseCompatibleStateImageBehavior = false;
             this.lstFeitas.View = System.Windows.Forms.View.Details;
@@ -240,24 +252,91 @@
             // lstFeitaTarefa
             // 
             this.lstFeitaTarefa.Text = "Tarefa";
+            this.lstFeitaTarefa.Width = 80;
             // 
             // lstFeitaTipo
             // 
             this.lstFeitaTipo.Text = "Tipo";
+            this.lstFeitaTipo.Width = 80;
             // 
             // lstFeitaDia
             // 
             this.lstFeitaDia.Text = "Dia";
+            this.lstFeitaDia.Width = 80;
             // 
             // lstFeitaHora
             // 
             this.lstFeitaHora.Text = "Hora";
             // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.btnDeletar);
+            this.groupBox4.Controls.Add(this.cbDeletar);
+            this.groupBox4.Location = new System.Drawing.Point(27, 305);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(322, 105);
+            this.groupBox4.TabIndex = 8;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Deletar Tarefa";
+            // 
+            // btnDeletar
+            // 
+            this.btnDeletar.Location = new System.Drawing.Point(129, 60);
+            this.btnDeletar.Name = "btnDeletar";
+            this.btnDeletar.Size = new System.Drawing.Size(75, 23);
+            this.btnDeletar.TabIndex = 1;
+            this.btnDeletar.Text = "Deletar";
+            this.btnDeletar.UseVisualStyleBackColor = true;
+            this.btnDeletar.Click += new System.EventHandler(this.btnDeletar_Click);
+            // 
+            // cbDeletar
+            // 
+            this.cbDeletar.FormattingEnabled = true;
+            this.cbDeletar.Items.AddRange(new object[] {
+            "Selecione uma tarefa"});
+            this.cbDeletar.Location = new System.Drawing.Point(64, 22);
+            this.cbDeletar.Name = "cbDeletar";
+            this.cbDeletar.Size = new System.Drawing.Size(203, 23);
+            this.cbDeletar.TabIndex = 0;
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.btnConcluir);
+            this.groupBox5.Controls.Add(this.cbConcluir);
+            this.groupBox5.Location = new System.Drawing.Point(27, 416);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(322, 105);
+            this.groupBox5.TabIndex = 9;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Concluir Tarefa";
+            // 
+            // btnConcluir
+            // 
+            this.btnConcluir.Location = new System.Drawing.Point(129, 60);
+            this.btnConcluir.Name = "btnConcluir";
+            this.btnConcluir.Size = new System.Drawing.Size(75, 23);
+            this.btnConcluir.TabIndex = 1;
+            this.btnConcluir.Text = "Concluir";
+            this.btnConcluir.UseVisualStyleBackColor = true;
+            this.btnConcluir.Click += new System.EventHandler(this.btnConcluir_Click);
+            // 
+            // cbConcluir
+            // 
+            this.cbConcluir.FormattingEnabled = true;
+            this.cbConcluir.Items.AddRange(new object[] {
+            "Selecione uma tarefa"});
+            this.cbConcluir.Location = new System.Drawing.Point(64, 22);
+            this.cbConcluir.Name = "cbConcluir";
+            this.cbConcluir.Size = new System.Drawing.Size(203, 23);
+            this.cbConcluir.TabIndex = 0;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1024, 540);
+            this.Controls.Add(this.groupBox5);
+            this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -268,6 +347,8 @@
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox5.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -300,5 +381,11 @@
         private Button btnCriar;
         private System.Windows.Forms.Timer timer1;
         private DateTimePicker txtHora;
+        private GroupBox groupBox4;
+        private Button btnDeletar;
+        private ComboBox cbDeletar;
+        private GroupBox groupBox5;
+        private Button btnConcluir;
+        private ComboBox cbConcluir;
     }
 }

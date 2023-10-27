@@ -1,4 +1,1 @@
-blabla,Evento,26/10/2023,16:20:44,Pendente
-tarefa 2,Trabalho,26/10/2023,16:20:50,Pendente
-Tarefa 5,Estudos,26/10/2023,16:57:05,Pendente
-cadastro,Trabalho,26/10/2023,17:02:11,Pendente
+Buscar ---- na escola,Estudos,30/10/2023,18:30:00,Pendente
