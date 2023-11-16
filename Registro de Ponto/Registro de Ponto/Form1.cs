@@ -22,9 +22,9 @@ namespace Registro_de_Ponto
             string caminho = "C:\\Users\\ariel.asilva2\\Documents\\GitHub\\Windows-Forms-Learning-with-CSharp\\Registro de Ponto\\Registro de Ponto\\Arquivos do Projeto\\Cadastros\\Cadastros.txt";
 
             // Se o arquivo txt não existe, cria um
-            if (File.Exists(caminho) == false)
+            if (!File.Exists(caminho))
             {
-                File.Create(caminho);
+                using (File.Create(caminho)) { } // Cria e fecha imediatamente
             }
 
             using (StreamWriter writer = new StreamWriter(caminho, true))
@@ -39,9 +39,9 @@ namespace Registro_de_Ponto
             string caminho = $"C:\\Users\\ariel.asilva2\\Documents\\GitHub\\Windows-Forms-Learning-with-CSharp\\Registro de Ponto\\Registro de Ponto\\Arquivos do Projeto\\Pontos Registrados\\{nome}.txt";
 
             // Se o arquivo txt não existe, cria um
-            if (File.Exists(caminho) == false)
+            if (!File.Exists(caminho))
             {
-                File.Create(caminho);
+                using (File.Create(caminho)) { } // Cria e fecha imediatamente
             }
 
             using (StreamWriter writer = new StreamWriter(caminho, true))
@@ -66,6 +66,7 @@ namespace Registro_de_Ponto
             for (int i = 0; i < File.ReadAllLines(caminho).Length; i++)
             {
                 string linha = File.ReadLines(caminho).Skip(i).FirstOrDefault();
+
                 string[] dados = linha.Split(',');
 
                 nomes[i] = dados[0];
